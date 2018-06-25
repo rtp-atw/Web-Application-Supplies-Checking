@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="nav.visible">
+    <a class="navbar-brand" style="color:whitesmoke"><img mat-card-image class="logoSize" src="../../assets/images/logo.png"> &nbsp; {{ appName }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"> <!-- เมนูต่างๆใน Nav-bar -->
+        <a class="nav-item nav-link active" href="javascript:void(0)" (click)="toMain()">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="javascript:void(0)" (click)="toAddDevice()">Add Device</a>
+        <a class="nav-item nav-link" target="_blank" href="https://storage-846cc.firebaseio.com/devices">Export</a>
+        <a class="nav-item nav-link" target="_blank" href="https://json-csv.com/">Convert</a>
+      </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+        <p class="my-2 my-sm-0 currentUser">{{account}}</p> &nbsp;&nbsp;
+        <button class="my-2 my-sm-0 logoutButton" color="warn" mat-raised-button (click)="logout()">Logout</button>
+    </form>
+</nav>
+
+

@@ -1,0 +1,56 @@
+<br>
+<form name=addDevice>
+  <div class="container">
+    <h2>Add new product <button (click)="toExcelImport()" mat-mini-fab color="primary" ><i class="material-icons">archive</i></button> <button (click)="addInput()" mat-mini-fab color="primary"><i class="material-icons">add_box</i></button></h2>
+    <!-- Input field การใส่ข้อมูลช่องต่างๆ (ถ้ารูปแบบชุดข้อมูลมีการเปลี่ยนแปลงต้องแก้ไขส่วนนี้ด้วย) --> 
+      <div class="row">
+          <div class="col-md-3" *ngFor="let device of deviceDetails; let i = index">
+            <div class="form-group fontBold">
+                <label [attr.for]="'number-' + i">Number :</label>
+                <input type="text" class="form-control" [attr.id]="'number-' + i" name='order'[(ngModel)]='device.number'/>
+                
+                <label [attr.for]="'serialNumber-' + i">Serial Number :</label>
+                <input type="text" class="form-control" [attr.id]="'serialNumber-' + i" name='serialNumber' [(ngModel)]='device.serialNumber'/>
+                
+                <label [attr.for]="'date-' + i">Date :</label>
+                <input type="text" class="form-control" [attr.id]="'date-' + i" name='date' [(ngModel)]='device.date'/>
+
+                <label [attr.for]="'name-' + i">Name :</label>
+                <input type="text" class="form-control" [attr.id]="'name-' + i" name='name' [(ngModel)]='device.name'/>
+
+                <label [attr.for]="'detail-' + i">Detail :</label>
+                <input type="text" class="form-control box" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
+                
+                <label [attr.for]="'location-' + i">Location :</label>
+                <input type="text" class="form-control" [attr.id]="'location-' + i" name='location' [(ngModel)]='device.location'/>
+
+                <label [attr.for]="'pricePerUnit-' + i">Price/Unit :</label>
+                <input type="text" class="form-control" [attr.id]="'pricePerUnit-' + i" name='pricePerUnit' [(ngModel)]='device.pricePerUnit'/>
+
+                <label [attr.for]="'transferStatus-' + i">Transfer Status :</label>
+                <input type="text" class="form-control" [attr.id]="'transferStatus-' + i" name='transferStatus' [(ngModel)]='device.transferStatus'/>
+                
+                <label [attr.for]="'oldSerialNumber-' + i">Old Serial Number :</label>
+                <input type="text" class="form-control" [attr.id]="'oldSerialNumber-' + i" name='oldSerialNumber' [(ngModel)]='device.oldSerialNumber'/>
+
+                <label [attr.for]="'status-' + i">Status :</label>
+                <input type="text" class="form-control" [attr.id]="'status-' + i" name='status' [(ngModel)]='device.status'/>
+
+                <label [attr.for]="'tagUID-' + i">Tag UID :</label>
+                <input type="text" class="form-control" [attr.id]="'tagUID-' + i" name='tagUID' [(ngModel)]='device.tagUID'/>
+
+                <label [attr.for]="'imgurl-' + i">Image :</label>
+                <input input type='file'(change)='selectFile($event, i)' class="form-control" [attr.id]="'imgurl-' + i" />
+
+                <label [attr.for]="'remark-' + i">Remark :</label>  <!-- 45- -->
+                <input type="text" class="form-control" [attr.id]="'remark-' + i" name='remark' [(ngModel)]='device.remark'/>
+            </div>
+          </div>
+      </div>
+      
+    <button (click)="saveProduct()" mat-raised-button color="primary" >SUBMIT</button>
+    <button (click)="toMain()" mat-raised-button color="primary" >BACK</button> 
+    <br>
+    <br>
+  </div>
+</form>

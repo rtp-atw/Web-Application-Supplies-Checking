@@ -1,0 +1,35 @@
+<div class="container">
+		<div class="col-md-12">
+		<br>
+		<input type="file" (change)="onFileChange($event)" multiple="false" />
+		<br>
+		<br>
+			<div class="container">
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr> <!-- หัวตาราง (ถ้ารูปแบบชุดข้อมูลมีการเปลี่ยนแปลงต้องแก้ไขส่วนนี้ด้วย) -->
+							<th class="text-center fontBold">Number</th>
+							<th class="text-center fontBold">Serial Number</th>
+							<th class="text-center fontBold">Date</th>
+							<th class="text-center fontBold">Name</th>
+							<th class="text-center fontBold">Detail</th>
+							<th class="text-center fontBold">Location</th>
+							<th class="text-center fontBold">Price/Unit</th>
+							<th class="text-center fontBold">Transfer Status</th>
+							<th class="text-center fontBold">Old Serial Number</th>
+							<th class="text-center fontBold">Remark</th>
+						</tr>
+			  		</thead>
+			  		<tbody>
+						<tr *ngFor="let row of data"> <!-- ข้อมูลที่เลือก สัมพันธ์กับหัวตาราง -->
+							<td *ngFor="let val of row">
+								{{val}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        <button (click)="uploadToFirebase(data)" mat-raised-button color="primary" >UPLOAD</button>
+        <button (click)="backToMain()" mat-raised-button color="warn" >BACK</button> 
+		</div>
+	</div>

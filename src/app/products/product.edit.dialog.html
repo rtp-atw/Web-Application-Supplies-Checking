@@ -1,0 +1,85 @@
+<div class="container">
+    <h1>Edit Device</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+<!-- Input field การใส่ข้อมูลช่องต่างๆ สำหรับการแก้ไขข้อมูล (ถ้ารูปแบบชุดข้อมูลมีการเปลี่ยนแปลงต้องแก้ไขส่วนนี้ด้วย) --> 
+                            <label for="number" class="col-sm-2 col-form-label">Number </label>
+                            <div class="col-sm-10">
+                                <input readonly type="text" class="form-control" id="number"  [(ngModel)]='editedProduct.number'>    
+                            </div>
+                                                
+                            <label for="serialNumber" class="col-sm-2 col-form-label">Serial</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="serialNumber"  [(ngModel)]='editedProduct.serialNumber'>
+                            </div>
+
+                            <label for="date" class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="date"  [(ngModel)]='editedProduct.date'>
+                            </div>
+
+                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name"  [(ngModel)]='editedProduct.name'>
+                            </div>
+
+                            <label for="detail" class="col-sm-2 col-form-label">Detail</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="detail"  [(ngModel)]='editedProduct.detail'>
+                            </div>
+
+                            <label for="location" class="col-sm-2 col-form-label">Location</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="location"  [(ngModel)]='editedProduct.location'>
+                            </div>
+
+                            <label for="pricePerUnit" class="col-sm-2 col-form-label">Price/Unit</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="pricePerUnit"  [(ngModel)]='editedProduct.pricePerUnit'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"> 
+                        <div class="form-group row">
+                            
+                            <label for="transferStatus" class="col-sm-3 col-form-label">Transfer</label>
+                            <div class="col-sm-9">
+                                <input  type="text" class="form-control" id="transferStatus"  [(ngModel)]='editedProduct.transferStatus'>    
+                            </div>
+                                                
+                            <label for="oldSerialNumber" class="col-sm-3 col-form-label">Old Serial</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="oldSerialNumber"  [(ngModel)]='editedProduct.oldSerialNumber'>
+                            </div>
+
+                            <label for="status" class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="status"  [(ngModel)]='editedProduct.status'>
+                            </div>
+
+                            <label for="tagUID" class="col-sm-3 col-form-label">Tag UID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="tagUID"  [(ngModel)]='editedProduct.tagUID'>
+                            </div>
+
+                            <label for="remark" class="col-sm-3 col-form-label">Remark</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="remark"  [(ngModel)]='editedProduct.remark'>
+                            </div>
+
+                            <label for="img" class="col-sm-3 col-form-label">Image</label>
+                            <div class="col-sm-9">
+                                <input type="file"(change)="selectFile($event)" id="img" class="form-control">
+                            </div>
+
+                        </div>                  
+                    </div>
+                </div>
+                <button type="submit" mat-raised-button color="primary" (click)="updateProduct(editedProduct.key,editedProduct)">Submit</button>
+                <button type="button" mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+
+                <br>
+            <p>Last Update : {{editedProduct.lastUpdate}}</p>
+</div>
+

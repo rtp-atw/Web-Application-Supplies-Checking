@@ -1,0 +1,28 @@
+.currentUser {
+    color: whitesmoke;
+  }
+.logoutButton{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #50514F;
+}
+.logoSize{
+    width: 35px;
+    height: 35px;
+
+}
+.navHeader{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    
+    text-align: left;
+}
+
+.navHeaderMenu{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1.0rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
