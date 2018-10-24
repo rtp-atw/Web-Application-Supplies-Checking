@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'firebase';
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
@@ -14,10 +14,10 @@ import { NavbarService } from '../nav/nav.service';
 
 export class RegisterComponent implements OnInit {
 
-    email :string ='';
-    password: string ='';
-    name:string = '';
-    file: any
+    email: string;
+    password: string;
+    name: string;
+    file: any;
     storageRef = firebase.storage().ref();
 
     constructor(
@@ -25,44 +25,42 @@ export class RegisterComponent implements OnInit {
         private angFire: AngularFireDatabase,
         private router: Router,
         public nav: NavbarService
-    ) { 
-        
-    }   
-    async register() {
+    ) {
+
+    }
+    register() {
         try {
-            const result = this.afAuth.auth.createUserWithEmailAndPassword(this.email, this.password).then((user: User) => {
-                console.log('register',user);
-                this.uploadPhoto().then((url) =>{
-                  user.updateProfile({
-                    photoURL: url,
-                    displayName: this.name
-                  });
-                }); 
-              })
-        }
-        catch (e) {
-            console.error(e);
+            const result = this.afAuth.auth.createUserWithEmailAndPassword(this.email, this.password).then((user) => {
+                this.uploadPhoto().then((url) => {
+                    user.user.updateProfile({
+                        photoURL: url,
+                        displayName: this.name
+                    });
+                });
+            });
+        } catch (e) {
+            console.log(e);
         }
     }
-    selectFile(e) { //เลือกไฟล์
+    selectFile(e) { // เลือกไฟล์
         console.log(e);
-        this.file = e.target.files[0]
-      }
-    
+        this.file = e.target.files[0];
+    }
+
     uploadPhoto(): Promise<any> { // Upload รูปโปรไฟล์
         console.log(this.file);
-        return this.storageRef.child("Profile/" + this.file.name).put(this.file).then((snapshot) => {
-          console.log(snapshot);
-          return this.storageRef.child("Profile/" + this.file.name).getDownloadURL();
+        return this.storageRef.child('Profile/' + this.file.name).put(this.file).then((snapshot) => {
+            console.log(snapshot);
+            return this.storageRef.child('Profile/' + this.file.name).getDownloadURL();
         });
     }
 
-      
+
     ngOnInit() {
-        this.nav.hide();   
+        this.nav.hide();
     }
 
-    backToLogin(){
-        this.router.navigateByUrl("/");
+    backToLogin() {
+        this.router.navigateByUrl('/');
     }
 }
